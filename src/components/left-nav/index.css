@@ -1,0 +1,21 @@
+.left-nav {
+    position: fixed;
+    color: #fff;
+    height: 100%;
+    /* width: 256px; */
+    background-color: #fff;
+    border-right: solid #f0f0f0 1px;
+}
+
+.left-nav-header {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    background-color: rgb(24, 144, 255);
+}
+
+.title {
+    font-size: 20px;
+    margin-left: 20px;
+    color: #fff;
+}
