@@ -11,6 +11,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import axios from 'axios'
 
 import './login.css'
+import { reqUrl } from '../../api/network'
 // import {reqLogin} from '../../api'
 
 // 登录的路由组件
@@ -19,12 +20,12 @@ export default class Login extends Component {
         super(props);
         this.state =
         {
-            loginPath: "http://106.15.198.136:8080/v1/api/user/enterprise/login",
+            loginPath: reqUrl + "v1/api/user/enterprise/login",
             loading: false,
             loginText: 'Login',
             account: '',
             password: '',
-            rememberMe: false
+            rememberMe: true
         };
         // eslint-disable-next-line no-useless-constructor
     }
@@ -79,7 +80,7 @@ export default class Login extends Component {
                 url: this.state.loginPath,
                 dataType: 'json',
                 data: {
-                    "phone": this.state.account,
+                    "account": this.state.account,
                     "password": this.state.password,
                     "remember": this.state.rememberMe,
                 },
@@ -232,6 +233,7 @@ export default class Login extends Component {
         )
     }
 }
+
 
 // 1. 前台表单验证
 

@@ -12,6 +12,7 @@ import { DeleteOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons'
 import moment from 'moment'
 import CreateUserModal from './CreateUserModal'
 import axios from 'axios';
+import { reqUrl } from '../../api/network'
 const defaultTime = moment("0001-01-01T00:00:00Z").format('YYYY-MM-DD HH:mm:ss');
 
 class Users extends Component {
@@ -26,7 +27,7 @@ class Users extends Component {
         this.setState({
             usersLoading: true,
         })
-        const res = await axios.get('http://106.15.198.136:8080/v1/api/user/enterprise/card/search/' + this.state.activityNum)
+        const res = await axios.get(reqUrl + 'v1/api/user/enterprise/card/search/' + this.state.activityNum)
         if (res.status !== 200) {
             this.setState({
                 usersLoading: false,
@@ -65,7 +66,7 @@ class Users extends Component {
     }
     singleDelete = async (record) => {
         console.log(record);
-        const res = await axios.get('http://106.15.198.136:8080/v1/api/user/enterprise/card/delete/' + record.CardId)
+        const res = await axios.get(reqUrl + 'v1/api/user/enterprise/card/delete/' + record.CardId)
         console.log(res.status);
         if (res.status === 200) {
             notification.success({

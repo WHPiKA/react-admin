@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import { Modal, Form, Input, message } from 'antd'
 import Axios from 'axios';
+import { reqUrl } from '../../api/network'
 
 class CreateUserModal extends Component {
     state = {
@@ -34,7 +35,7 @@ class CreateUserModal extends Component {
         })
     }
     onRegister = async () => {
-        const res = await Axios.put('http://106.15.198.136:8080/v1/api/user/enterprise/card/add',
+        const res = await Axios.put(reqUrl + 'v1/api/user/enterprise/card/add',
             {
                 typeId: Number(this.state.typeId),
                 userId: this.state.userId,

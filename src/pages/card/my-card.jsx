@@ -10,6 +10,7 @@ import { Card, Row, Col, Descriptions } from 'antd';
 import './my-card.css';
 import { AccountContext } from '../../utils/AccountContext';
 import Axios from 'axios';
+import { reqUrl } from '../../api/network'
 
 // 卡片路由
 
@@ -25,7 +26,7 @@ export default class Mycard extends Component {
         const account = this.context.account;
         Axios({
             method: 'GET',
-            url: "http://106.15.198.136:8080/v1/api/user/enterprise/" + account.enterpriseName,
+            url: reqUrl + "v1/api/user/enterprise/" + account.enterpriseName,
             crossDomain: true,
             beforeSend: function (xhr) {
                 xhr.withCredentials = true;

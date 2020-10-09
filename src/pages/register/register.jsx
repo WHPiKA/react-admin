@@ -20,6 +20,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 
 import { Upload, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import { reqUrl } from '../../api/network'
 
 
 import './register.css'

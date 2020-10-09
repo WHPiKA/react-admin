@@ -17,6 +17,7 @@ import 'antd/dist/antd.css';
 import './index.css';
 import axios from 'axios';
 import { AccountContext } from '../../utils/AccountContext';
+import { reqUrl } from '../../api/network'
 
 const { Content } = Layout;
 // const { SubMenu } = Menu;
@@ -58,7 +59,7 @@ class EnterpriseInfo extends React.Component {
         console.log(user);
         axios({
             method: 'GET',
-            url: "http://106.15.198.136:8080/v1/api/user/enterprise/info/" + user.enterpriseId,
+            url: reqUrl + "v1/api/user/enterprise/info/" + user.enterpriseId,
             crossDomain: true,
             beforeSend: function (xhr) {
                 xhr.withCredentials = true;
@@ -102,7 +103,7 @@ class EnterpriseInfo extends React.Component {
             });
         axios({
             method: 'GET',
-            url: "http://106.15.198.136:8080/v1/api/user/enterprise/info/" + "002",
+            url: reqUrl + "v1/api/user/enterprise/info/" + "002",
             crossDomain: true,
             beforeSend: function (xhr) {
                 xhr.withCredentials = true;
